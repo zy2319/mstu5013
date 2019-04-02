@@ -1,48 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>TITLE</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./styles/styles.css">
+  </head>
+  <body>
 
-<head>
-  <meta charset="utf-8">
-  <title>TITLE</title>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="./styles/styles.css">
-</head>
+    <!-- MOUNT POINT -->
+    <app></app>
 
-<body>
+    <!-- TAGS -->
+    <script src="./tags/app.tag" type="riot/tag"></script>
+		<script src="./tags/todo-basic.tag" type="riot/tag"></script>
+		<script src="./tags/todo-realtime.tag" type="riot/tag"></script>
 
-  <!-- MOUNT POINT -->
-  <app></app>
+    <!-- LOAD JQuery, Bootstrap, Riot, Firebase -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/riot/3.13.2/riot+compiler.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
 
-  <!-- TAGS -->
-  <script src="./tags/app.tag" type="riot/tag"></script>
-  <script src="./tags/todo-basic.tag" type="riot/tag"></script>
-  <script src="./tags/todo-realtime.tag" type="riot/tag"></script>
+    <script>
+      // INITIALIZE FIREBASE
+	    var config = {
+	      apiKey: "YOUR API KEY",
+	      authDomain: "YOUR PROJECT ID.firebaseapp.com",
+	      databaseURL: "https://YOUR PROJECT ID.firebaseio.com",
+	      projectId: "YOUR PROJECT ID",
+	      storageBucket: "YOUR PROJECT ID.appspot.com",
+	      messagingSenderId: "YOUR MESSAGINGSENDER ID"
+	    };
 
-  <!-- LOAD JQuery, Bootstrap, Riot, Firebase -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/riot/3.13.2/riot+compiler.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+      firebase.initializeApp(config);
 
-  <script>
-    // INITIALIZE FIREBASE
-    var config = {
-      apiKey: "AIzaSyCwJhIWOUcWz3qMcGeAd74auzvXHlAnvEM",
-      authDomain: "demo2-e9b2e.firebaseapp.com",
-      databaseURL: "https://demo2-e9b2e.firebaseio.com",
-      projectId: "demo2-e9b2e",
-      storageBucket: "demo2-e9b2e.appspot.com",
-      messagingSenderId: "1033284276398"
-    };
-    firebase.initializeApp(config);
+			// Create firestore object (database ref)
+			let database = firebase.firestore();
 
-    // Create firestore object (database ref)
-    let database = firebase.firestore();
+      // INITIALIZE RIOT
+      var tags = riot.mount('*', {
+				title: "My List"
+			});
+    </script>
 
-    // INITIALIZE RIOT
-    var tags = riot.mount('*', {
-      title: "My List"
-    });
-  </script>
-
-</body>
-
+  </body>
 </html>
