@@ -1,46 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>TITLE</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="./styles/styles.css">
-  </head>
-  <body>
 
-    <!-- MOUNT POINT -->
-    <app></app>
+<head>
+  <meta charset="utf-8">
+  <title>TITLE</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="./styles/styles.css">
+</head>
 
-    <!-- TAGS -->
-    <script src="./tags/app.tag" type="riot/tag"></script>
-		<script src="./tags/todo-basic.tag" type="riot/tag"></script>
-		<script src="./tags/todo-realtime.tag" type="riot/tag"></script>
+<body>
 
-    <!-- LOAD JQuery, Bootstrap, Riot, Firebase -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/riot/3.13.2/riot+compiler.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+  <!-- MOUNT POINT -->
+  <app></app>
 
-    <script>
-      // INITIALIZE FIREBASE
-	    var config = {
-	      apiKey: "YOUR API KEY",
-	      authDomain: "YOUR PROJECT ID.firebaseapp.com",
-	      databaseURL: "https://YOUR PROJECT ID.firebaseio.com",
-	      projectId: "YOUR PROJECT ID",
-	      storageBucket: "YOUR PROJECT ID.appspot.com",
-	      messagingSenderId: "YOUR MESSAGINGSENDER ID"
-	    };
+  <!-- TAGS -->
+  <script src="./tags/app.tag" type="riot/tag"></script>
+  <script src="./tags/todo-basic.tag" type="riot/tag"></script>
+  <script src="./tags/todo-realtime.tag" type="riot/tag"></script>
 
-      firebase.initializeApp(config);
+  <!-- LOAD JQuery, Bootstrap, Riot, Firebase -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/riot/3.13.2/riot+compiler.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
 
-			// Create firestore object (database ref)
-			let database = firebase.firestore();
+  <script>
+    // INITIALIZE FIREBASE
+    var config = {
+      apiKey: "AIzaSyCwJhIWOUcWz3qMcGeAd74auzvXHlAnvEM",
+      authDomain: "demo2-e9b2e.firebaseapp.com",
+      databaseURL: "https://demo2-e9b2e.firebaseio.com",
+      projectId: "demo2-e9b2e",
+      storageBucket: "demo2-e9b2e.appspot.com",
+      messagingSenderId: "1033284276398"
+    };
+    firebase.initializeApp(config);
 
-      // INITIALIZE RIOT
-      var tags = riot.mount('*', {
-				title: "My List"
-			});
-    </script>
+    // Create firestore object (database ref)
+    let database = firebase.firestore();
 
-  </body>
+    // INITIALIZE RIOT
+    var tags = riot.mount('*', {
+      title: "My List"
+    });
+  </script>
+
+</body>
+
 </html>
